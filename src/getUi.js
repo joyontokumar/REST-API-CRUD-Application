@@ -11,35 +11,7 @@ class Uidata {
         this.submitData = document.querySelector('.submitData');
         this.forState = 'add';
     }
-    showAlert(message, classname) {
-        this.clearAlert();
-        // create a div
-        const div = document.createElement('div');
-        // add claess
-        div.className = classname;
-        div.appendChild(document.createTextNode(message));
 
-        // get parent
-        const mainDiv = document.querySelector('.formarea');
-        const showalert = document.querySelector('.outputAll');
-        mainDiv.insertBefore(div, showalert);
-
-        // timeout
-        setTimeout(() => {
-            this.clearAlert();
-        }, 2000);
-
-    }
-    clearAlert() {
-        const currentAlert = document.querySelector('.alert');
-        if (currentAlert) {
-            currentAlert.remove();
-        }
-    }
-    clearField() {
-        this.title.value = '';
-        this.description.value = '';
-    }
 }
 
 export const uidata = new Uidata;

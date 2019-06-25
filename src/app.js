@@ -1,7 +1,6 @@
 import { myhttp } from './httpRequest';
 import { uidata } from './getUi';
 
-
 // get data when dom load
 document.addEventListener('DOMContentLoaded', getDataForm);
 function getDataForm() {
@@ -24,6 +23,7 @@ function getDataForm() {
 }
 
 // insert data 
+
 document.querySelector('.submitData').addEventListener('click', insertData);
 function insertData() {
     const title = document.querySelector('#title').value;
@@ -32,8 +32,15 @@ function insertData() {
         title,
         description
     };
-    myhttp.post('http://localhost:3000/allData', data, function (allinfo) {
-        uidata.showAlert('post added', 'alert alert-success');
-        getDataForm();
+
+    myhttp.post('http://localhost:3000/allData', data, function (alldata) {
+
+        if (alldata.title == '' || alldata.description == '') {
+            alert("please fillup all field");
+            return false;
+        }
+        else {
+            getDataForm();
+        }
     })
 }
