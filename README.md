@@ -7,8 +7,9 @@ $ npm install
 ```
 
 ## Run Json server
+```sh
 json:server
-
+```
 ### Serve
 To serve in the browser  - Runs webpack-dev-server
 
